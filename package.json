@@ -1,0 +1,38 @@
+{
+  "name": "wclancpa-2019",
+  "version": "1.0.0",
+  "description": "Smattering of sample Blocks for PBrocks",
+  "main": "blocks/block.js",
+  "scripts": {
+    "dev": "cross-env webpack --watch",
+    "build": "cross-env BABEL_ENV=default webpack -p"
+  },
+  "keywords": [
+    "blocks",
+    "introduction"
+  ],
+  "author": "pbrocks",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "classnames": "^2.2.5",
+    "cross-env": "^5.1.5",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.3",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  }
+}
