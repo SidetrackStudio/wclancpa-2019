@@ -1,8 +1,8 @@
 <?php
-
 /**
  * Enqueueing assets, ie the thing that makes blocks go
  */
+
 /**
  *
 	$block_path = '/assets/js/frontend.blocks.js';

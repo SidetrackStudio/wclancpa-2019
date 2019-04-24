@@ -4,7 +4,8 @@
 import './i18n.js';
 
 
-import './built-with-php/block';
+import './inspector-controls/block';
 import './introduction/block';
+// import './mark/block';
 import './using-notices/block';
 
