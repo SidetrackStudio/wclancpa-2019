@@ -8,7 +8,7 @@ function wclancpa_2019_block_render( $block_content, $block ) {
 	}
 }
 
-// add_filter( 'render_block', 'wclancpa_2019_reveal_fragment', 10, 2 );
+add_filter( 'render_block', 'wclancpa_2019_reveal_fragment', 10, 2 );
 function wclancpa_2019_reveal_fragment( $block_content, $block ) {
 	if ( 'reveal_slides' == get_post_type() ) {
 		$block_content = "<div class='wp-block fragment' data-blockType='{$block['blockName']}'>{$block_content}</div>";
