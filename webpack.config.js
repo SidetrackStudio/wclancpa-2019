@@ -1,62 +1,29 @@
-var ExtractText = require('extract-text-webpack-plugin');
-var debug = process.env.NODE_ENV !== 'production';
-var webpack = require('webpack');
-
-var extractEditorSCSS = new ExtractText({
-  filename: './blocks.editor.build.css'
-});
-
-var extractBlockSCSS = new ExtractText({
-  filename: './blocks.style.build.css'
-});
-
-var plugins = [extractEditorSCSS, extractBlockSCSS];
-
-var scssConfig = {
-  use: [
-    {
-      loader: 'css-loader'
-    },
-    {
-      loader: 'sass-loader',
-      options: {
-        outputStyle: 'compressed'
-      }
-    }
-  ]
-};
+// sets mode webpack runs under
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const path = require(`path`);
 
 module.exports = {
-  context: __dirname,
-  devtool: debug ? 'inline-sourcemap' : null,
-  mode: debug ? 'development' : 'production',
-  entry: './blocks/src/blocks.js',
-  output: {
-    path: __dirname + '/blocks/dist/',
-    filename: 'blocks.build.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader'
-          }
-        ]
-      },
-      {
-        test: /editor\.scss$/,
-        exclude: /node_modules/,
-        use: extractEditorSCSS.extract(scssConfig)
-      },
-      {
-        test: /style\.scss$/,
-        exclude: /node_modules/,
-        use: extractBlockSCSS.extract(scssConfig)
-      }
-    ]
-  },
-  plugins: plugins
+    mode: NODE_ENV,
+
+    // entry is the source script
+    entry: './blocks/blocks.js',
+
+    // output is where to write the built file
+    output: {
+        path: path.join( __dirname, 'dist'),
+        filename: 'blocks.build.js',
+    },
+    module: {
+        // the list of rules used to process files
+        // this looks for .js files, exclude files
+        // in node_modules directory, and uses the
+        // babel-loader to process
+        rules: [
+            {
+                test: /.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+            },
+        ],
+    },
 };
