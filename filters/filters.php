@@ -18,26 +18,16 @@ function create_wclancpa_2019_panel( $categories, $post ) {
 	);
 }
 add_filter( 'block_categories', 'create_wclancpa_2019_panel', 10, 2 );
-/**
- * Enqueue block filters
- */
-function wclancpa_2019_block_filters() {
-	$filters_js_path    = 'filters.js';
-	$filters_style_path = 'filters/filter-assets/css/filters-editor.css';
-	// Enqueue our block filters
-	wp_enqueue_script(
-		'wclancpa-2019-filters-js',
-		plugins_url( $filters_js_path, __FILE__ ),
-		[ 'wp-hooks', 'lodash' ],
-		filemtime( plugin_dir_path( __FILE__ ) . $filters_js_path ),
-		true
-	);
 
+
+add_action( 'wp_enqueue_scripts', 'enqueue_wclancpa_2019_frontend' );
+function enqueue_wclancpa_2019_frontend() {
+	  $style_path = 'css/interim.css';
 	wp_enqueue_style(
-		'wclancpa-2019-editor-style',
-		plugins_url( $filters_style_path, __DIR__ ),
-		[ 'wp-blocks', 'wp-edit-blocks' ],
-		filemtime( plugin_dir_path( __DIR__ ) . $filters_style_path )
+		'wclancpa-2019-interim',
+		plugins_url( $style_path, __FILE__ ),
+		[],
+		time()
 	);
 }
-add_action( 'enqueue_block_editor_assets', 'wclancpa_2019_block_filters' );
+

@@ -1,7 +1,7 @@
 const { __ } = wp.i18n; 
 const { registerBlockType } = wp.blocks; 
 
-import lancpaIcon from  '../../filters/filter-assets/lancpaIcon';
+import lancpaIcon from  '../../filters/lancpaIcon';
 
 registerBlockType( 'wclancpa-2019/wclancpa-2019-block', {
 
@@ -20,7 +20,7 @@ registerBlockType( 'wclancpa-2019/wclancpa-2019-block', {
 	edit: function( props ) {
 		return (
 			<div className={ props.className }>
-				<p>{ __(`— Hell from the backend.`, 'wclancpa-2019') }</p>
+				<p>{ __(`— Hello from the backend.`, 'wclancpa-2019') }</p>
 			</div>
 		);
 	},
